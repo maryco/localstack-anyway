@@ -10,7 +10,7 @@ services:
     environment:
       - SERVICES=s3,ses
       - DOCKER_HOST=unix:///var/run/docker.sock
-      - DOCKER_SOCK=/var/run/docker.sock # locakstackでもローカルDocker利用できるようにする設定
+      - DOCKER_SOCK=/var/run/docker.sock
       - DEFAULT_REGION
       - SES_VERIFY_EMAIL
       - S3_DEFAULT_BUCKET
