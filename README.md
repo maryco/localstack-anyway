@@ -2,9 +2,12 @@
 
 NOTE: For allows access from other container you should set same name to "COMPOSE_PROJECT_NAME" 
 
-> cd docker <br>
-> cp .env.example .env
+```
+cd docker
+cp .env.example .env
+```
 
+- Edit .env
 ```ini
 COMPOSE_PROJECT_NAME=docker
 LOCALSTACK_VOLUME_DIR=localstack-debug
@@ -16,13 +19,18 @@ SES_VERIFY_EMAIL=localstack-debug@example.com
 S3_DEFAULT_BUCKET=localstack-debug
 ```
 
-> cd docker <br>
+```
+> cd docker
 > docker compose up -d
-
-> docker exec -it localstack-debug /bin/bash <br>
+```
 
 - Check available services.
   > curl -s "http://127.0.0.1:4566/health" | jq .
+
+```
+docker exec -it localstack-debug /bin/bash
+```
+
 - Check default bucket are created.
   > awslocal s3 ls
 - Check SES verified identities.
@@ -31,9 +39,9 @@ S3_DEFAULT_BUCKET=localstack-debug
   If list is empty, add one using region and email address you want to set up. (NOTE: **Region option is required.**)
   > awslocal ses verify-email-identity --region ap-northeast-1 --email-address localstack-debug@example.com
 
-## Commands
+## Commands you might use
 
-- Get and Delete SES emails
+- Retrieving and deleting emails received in SES
   > curl -X GET 'http://localhost:4566/_localstack/ses/' <br>
   > curl -X DELETE 'http://localhost:4566/_localstack/ses?jdlzfxnetmecxvwk-rfnufcll-fuvy-jild-nkwf-yvjrnolawnsx-bsuuqu'
 
