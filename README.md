@@ -20,8 +20,8 @@ S3_DEFAULT_BUCKET=localstack-debug
 ```
 
 ```
-> cd docker
-> docker compose up -d
+cd docker
+docker compose up -d
 ```
 
 - Check available services.
@@ -43,7 +43,7 @@ docker exec -it localstack-debug /bin/bash
 
 - Retrieving and deleting emails received in SES
   > curl -X GET 'http://localhost:4566/_localstack/ses/' <br>
-  > curl -X DELETE 'http://localhost:4566/_localstack/ses?jdlzfxnetmecxvwk-rfnufcll-fuvy-jild-nkwf-yvjrnolawnsx-bsuuqu'
+  > curl -X DELETE 'http://localhost:4566/_localstack/ses?id=jdlzfxnetmecxvwk-rfnufcll-fuvy-jild-nkwf-yvjrnolawnsx-bsuuqu'
 
 ## With Laravel
 
