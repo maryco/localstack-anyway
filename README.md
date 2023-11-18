@@ -64,7 +64,7 @@ AWS_ACCESS_KEY_ID=localstack
 AWS_SECRET_ACCESS_KEY=localstack-secret
 AWS_DEFAULT_REGION=ap-northeast-1
 AWS_BUCKET=localstack-debug
-AWS_USE_PATH_STYLE_ENDPOINT=false
+AWS_USE_PATH_STYLE_ENDPOINT=true
 AWS_ENDPOINT=http://localstack:4566
 
 MAIL_MAILER=ses
