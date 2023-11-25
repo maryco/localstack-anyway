@@ -1,0 +1,21 @@
+{
+  "name": "ses-mail-viewer",
+  "version": "0.0.1",
+  "main": "localstack-proxy/server.js",
+  "license": "MIT",
+  "scripts": {
+    "serve:proxy": "nodemon localstack-proxy/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mailparser": "^3.6.5",
+    "node-fetch": "2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "volta": {
+    "node": "18.18.2"
+  }
+}

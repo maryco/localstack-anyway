@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+@layer base {
+  :root {
+    font-synthesis: none;
+    line-height: 1.5;
+
+    color-scheme: light dark;
+    --color-white: 255 255 255;
+    --color-black: 23 23 28; /* zinc-900 */
+    --color-gray-bg: 247 247 247;
+    --color-gray-light: 220 220 220;
+    --color-gray-slate: 72 91 127; /*213 220 230*/
+    --color-gray-border: 237 237 237;
+    --color-notice: 255 143 143;
+    --color-link: 29 78 216;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  min-height: 100vh;
+  color: rgb(var(--color-black));
+  background-color: #9ca3af;
+}
+
+.c-mail-body {
+  & a {
+    text-decoration: underline;
+    color: rgb(var(--color-link));
+  }
+}
