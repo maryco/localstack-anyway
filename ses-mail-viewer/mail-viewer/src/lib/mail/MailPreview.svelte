@@ -13,7 +13,7 @@
     <h2 class="pb-3 border-b border-gray-border">
       {$selectedMail?.subject ?? ''}
     </h2>
-    <div class="c-mail-body mt-8">{@html $selectedMail?.text ?? ''}</div>
+    <div class="c-mail-body mt-8">{@html $selectedMail?.html ?? ''}</div>
   </div>
 </div>
 
