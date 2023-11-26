@@ -4,7 +4,7 @@
 
 <button
   class="c-iconBtn h-[20px] w-[20px] ring-inset focus:outline-none focus:ring"
-  on:click={clickHandler}
+  on:click|stopPropagation={clickHandler}
 >
   <slot />
 </button>

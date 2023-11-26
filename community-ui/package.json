@@ -1,5 +1,5 @@
 {
-  "name": "ses-mail-viewer",
+  "name": "community-ui",
   "version": "0.0.1",
   "main": "localstack-proxy/server.js",
   "license": "MIT",

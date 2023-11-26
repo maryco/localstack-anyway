@@ -11,8 +11,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 */node_modules
-mail-viewer/dist
-mail-viewer/dist-ssr
+simple-mail-viewer/dist
+simple-mail-viewer/dist-ssr
 *.local
 
 # Editor directories and files
