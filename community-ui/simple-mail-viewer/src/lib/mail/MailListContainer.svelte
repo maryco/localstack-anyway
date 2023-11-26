@@ -26,10 +26,10 @@
 </script>
 
 <section
-  class="min-w-[380px] max-w-[380px] flex flex-col flex-nowrap justify-start bg-white"
+  class="min-w-[380px] max-w-[380px] max-h-screen flex flex-col flex-nowrap justify-start bg-white"
 >
   <div
-    class="w-full h-9 pl-6 pr-3 sticky top-0 flex gap-1 shrink-0 justify-end bg-gray-slate z-10"
+    class="w-full h-9 pl-6 pr-3 sticky top-0 flex gap-1 shrink-0 justify-end bg-theme z-10"
   >
     <HeaderButton clickHandler={refresh}><ReloadIcon /></HeaderButton>
     <HeaderButton clickHandler={destloy}><DeleteIcon /></HeaderButton>
