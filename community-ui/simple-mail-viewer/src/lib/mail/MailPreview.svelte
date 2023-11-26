@@ -2,7 +2,7 @@
   import { selectedMail } from '@/store'
 </script>
 
-<div class="max-w-[832px] py-6 px-8 grow flex flex-col bg-gray-bg">
+<div class="max-w-[832px] max-h-screen overflow-y-scroll py-6 px-8 grow flex flex-col bg-gray-bg">
   <div class="flex justify-between">
     <p>
       To<span class="mx-2">:</span><span>{$selectedMail?.to.text ?? ''}</span>
@@ -14,6 +14,11 @@
       {$selectedMail?.subject ?? ''}
     </h2>
     <div class="c-mail-body mt-8">{@html $selectedMail?.html ?? ''}</div>
+    {#if $selectedMail?.text}
+      <div class="mt-12 pt-4 border-t border-gray-border break-all whitespace-pre-wrap">
+        {$selectedMail.text}
+      </div>
+    {/if}
   </div>
 </div>
 

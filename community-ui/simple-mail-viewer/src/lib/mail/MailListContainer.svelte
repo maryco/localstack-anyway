@@ -20,6 +20,7 @@
   }
 
   const destloy = async () => {
+    selectedMail.set(null)
     await clearSes()
     mails = await fetchSes()
   }
