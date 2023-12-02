@@ -23,5 +23,10 @@
 </div>
 
 <style lang="scss">
-  // See 'c-mail-body' in app.scss
+  .c-mail-body {
+    & :global(a) {
+      text-decoration: underline;
+      color: rgb(var(--color-link));
+    }
+  }
 </style>

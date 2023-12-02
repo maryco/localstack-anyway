@@ -32,10 +32,3 @@ body {
   color: rgb(var(--color-black));
   background-color: rgb(var(--color-gray-dark));
 }
-
-.c-mail-body {
-  & a {
-    text-decoration: underline;
-    color: rgb(var(--color-link));
-  }
-}

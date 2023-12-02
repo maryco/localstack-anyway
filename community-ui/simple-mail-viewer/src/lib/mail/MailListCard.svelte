@@ -24,7 +24,7 @@
 </script>
 
 <div
-  class="c-mail-card h-[110px] p-5 cursor-pointer text-sm transition-color duration-200"
+  class="c-mail-card h-[110px] p-5 flex flex-col justify-center cursor-pointer text-sm transition-color duration-200"
 >
   <p class="leading-5 line-clamp-2">
     {mail?.subject}

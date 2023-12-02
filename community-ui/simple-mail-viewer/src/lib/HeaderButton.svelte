@@ -4,13 +4,14 @@
   let ripple: HTMLElement
   let buttonElement: HTMLButtonElement
 
+  const rippleEffect = ['opacity-30', 'scale-0', 'transition-transform', 'duration-500'];
   const clickHandlerWrapper = () => {
     buttonElement.blur()
-    ripple.classList.add('opacity-50', 'scale-0', 'transition-transform')
+    ripple.classList.add(...rippleEffect)
     setTimeout(() => {
-      ripple.classList.remove('opacity-50', 'scale-0', 'transition-transform')
+      ripple.classList.remove(...rippleEffect)
       clickHandler()
-    }, 300)
+    }, 500)
   }
 </script>
 
@@ -35,7 +36,6 @@
       height: 20px;
       fill: rgb(var(--color-white));
     }
-
     &:hover > :global(svg) {
       fill: rgb(var(--color-black));
     }

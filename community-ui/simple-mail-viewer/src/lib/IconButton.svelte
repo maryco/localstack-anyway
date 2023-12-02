@@ -3,7 +3,7 @@
 </script>
 
 <button
-  class="c-iconBtn h-[20px] w-[20px] ring-inset focus:outline-none focus:ring"
+  class="c-iconBtn h-[20px] w-[20px] rounded-full ring-inset focus:outline-none focus:ring transition-all"
   on:click|stopPropagation={clickHandler}
 >
   <slot />
@@ -15,6 +15,7 @@
     &:hover,
     &:focus {
       fill: rgb(var(--color-notice));
+      scale: 1.2;
     }
   }
 </style>
