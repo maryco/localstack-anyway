@@ -14,6 +14,7 @@
     --color-black: 23 23 28; /* zinc-900 */
     --color-gray-bg: 247 247 247;
     --color-gray-light: 220 220 220;
+    --color-gray-dark: 156 163 175;
     --color-theme: 72 91 127;
     --color-gray-border: 237 237 237;
     --color-notice: 255 143 143;
@@ -29,12 +30,9 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
   min-height: 100vh;
   color: rgb(var(--color-black));
-  background-color: #9ca3af;
+  background-color: rgb(var(--color-gray-dark));
 }
 
-.c-mail-body {
-  & a {
-    text-decoration: underline;
-    color: rgb(var(--color-link));
-  }
+.focus-no-outline {
+  @apply focus:outline-none focus:ring
 }

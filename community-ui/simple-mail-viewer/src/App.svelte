@@ -4,7 +4,7 @@
   import { fetchSes } from '@/api'
 </script>
 
-<main class="w-screen min-h-screen flex">
+<main class="w-screen min-h-screen max-h-screen flex">
   {#await fetchSes()}
     TODO
   {:then mails} 

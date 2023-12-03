@@ -12,6 +12,7 @@ export default {
       gray: {
         light: 'rgb(var(--color-gray-light) / 1)', // #dcdcdc
         border: 'rgb(var(--color-gray-border) / 1)', // #ececec
+        dark: 'rgb(var(--color-gray-dark) / 1)', // #9ca3af
         bg: 'rgb(var(--color-gray-bg) / 1)', // #f7f7f7
       },
       notice: 'rgb(var(--color-notice) / 1)', // #ff9090
@@ -21,6 +22,9 @@ export default {
       // https://www.mailslurp.com/blog/tailwind-print-styles-custom-media-query/
       screens: {
         'print': { 'raw': 'print' },
+      },
+      animation: {
+        'pulse-once': 'pulse 0.5s linear',
       },
     },
   },

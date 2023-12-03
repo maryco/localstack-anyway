@@ -50,7 +50,7 @@
             if (e.code?.toLowerCase() === 'enter') selectedMail.set(mail)
           }}
         >
-          <MailListCard {mail} on:deleted={updateList} />
+          <MailListCard {mail} on:removed={updateList} />
         </div>
       </li>
     {:else}
