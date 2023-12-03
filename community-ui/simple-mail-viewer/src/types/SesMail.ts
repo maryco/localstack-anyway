@@ -3,7 +3,7 @@ type Exchanger = {
   text?: string,
 }
 
-type SesMail = {
+export type SesMail = {
   messageId: string,
   date: string,
   to: Exchanger,
@@ -13,6 +13,6 @@ type SesMail = {
   text?: string,
 }
 
-interface MailRemoved {
+export interface MailRemoved {
   id: string
 }

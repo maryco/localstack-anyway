@@ -1,13 +1,16 @@
 <script lang="ts">
-  import { fly, fade } from 'svelte/transition'
   import { cubicOut } from 'svelte/easing'
-  import DeleteIcon from '@/assets/icons/tornado-line.svg?component'
-  import ReloadIcon from '@/assets/icons/loop-right-line.svg?component'
-  import ReceiveSvg from '@/assets/receive.svg?component'
-  import MailListCard from '@/lib/mail/MailListCard.svelte'
-  import HeaderButton from '@/lib/HeaderButton.svelte'
-  import { selectedMail } from '@/store'
+  import { fly, fade } from 'svelte/transition'
+
   import { clearSes, fetchSes } from '@/api'
+  import ReloadIcon from '@/assets/icons/loop-right-line.svg?component'
+  import DeleteIcon from '@/assets/icons/tornado-line.svg?component'
+  import ReceiveSvg from '@/assets/receive.svg?component'
+  import HeaderButton from '@/lib/HeaderButton.svelte'
+  import MailListCard from '@/lib/mail/MailListCard.svelte'
+  import { selectedMail } from '@/store'
+
+  import type { SesMail } from '@/types/SesMail'
 
   export let mails: SesMail[]
 

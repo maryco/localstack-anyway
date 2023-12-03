@@ -1,19 +1,24 @@
 <script lang="ts">
   import { fade, slide } from 'svelte/transition'
-  import { selectedMail, previewModeStore, previewWidthStore } from '@/store'
-  import {
-    previewModeOptions,
-    previewWidthOptions,
-    previewWidth,
-  } from '@/constants'
-  import IconButton from '@/lib/IconButton.svelte'
+
   import CopyIcon from '@/assets/icons/file-copy-line.svg?component'
   import FullScreenIcon from '@/assets/icons/fullscreen-line.svg?component'
   import SmartphoneIcon from '@/assets/icons/smartphone-line.svg?component'
   import TabletIcon from '@/assets/icons/tablet-line.svg?component'
   import ButtonRadio from '@/lib/ButtonRadio.svelte'
+  import IconButton from '@/lib/IconButton.svelte'
   import IconRadio from '@/lib/IconRadio.svelte'
+  import { selectedMail, previewModeStore, previewWidthStore } from '@/store'
+  import {
+    previewModeOptions,
+    previewWidthOptions,
+    previewWidth,
+    type ScreenWidth,
+    type PreviewMode,
+  } from '@/types/Constant'
 
+  // FIXME
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const previewSizeIcons: { [key in ScreenWidth]: any } = {
     none: FullScreenIcon,
     sm: TabletIcon,

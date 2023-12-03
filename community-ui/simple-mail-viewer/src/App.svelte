@@ -1,7 +1,7 @@
 <script lang="ts">
+  import { fetchSes } from '@/api'
   import MailListContainer from '@/lib/mail/MailListContainer.svelte'
   import MailPreviewContainer from '@/lib/mail/MailPreviewContainer.svelte'
-  import { fetchSes } from '@/api'
 </script>
 
 <main class="w-screen min-h-screen max-h-screen flex">

@@ -1,9 +1,12 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte'
+
   import CloseIcon from '@/assets/icons/close-circle-line.svg?component'
   import EyeIcon from '@/assets/icons/eye-line.svg?component'
   import IconButton from '@/lib/IconButton.svelte'
   import { selectedMail } from '@/store'
-  import { createEventDispatcher } from 'svelte'
+
+  import type { MailRemoved, SesMail } from '@/types/SesMail'
 
   export let mail: SesMail
 
