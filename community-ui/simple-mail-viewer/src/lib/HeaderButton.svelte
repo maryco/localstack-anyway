@@ -17,7 +17,7 @@
 
 <div class="relative">
   <button
-    class="c-header-button w-9 h-full flex justify-center items-center rounded-full hover:bg-gray-bg transition-color duration-300 focus:outline-none focus:ring"
+    class="c-header-button w-9 h-full flex justify-center items-center rounded-full focus-no-outline hover:bg-gray-bg transition-color duration-300"
     on:click={clickHandlerWrapper}
     bind:this={buttonElement}
   >

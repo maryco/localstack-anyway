@@ -23,6 +23,9 @@ export default {
       screens: {
         'print': { 'raw': 'print' },
       },
+      animation: {
+        'pulse-once': 'pulse 0.5s linear',
+      },
     },
   },
   plugins: [],

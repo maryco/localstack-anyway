@@ -4,15 +4,15 @@ type Exchanger = {
 }
 
 type SesMail = {
-  html?: string,
-  text?: string,
-  subject?: string,
+  messageId: string,
   date: string,
   to: Exchanger,
   from: Exchanger,
-  messageId: string,
+  subject?: string,
+  html?: string,
+  text?: string,
 }
 
-interface MailDeleted {
+interface MailRemoved {
   id: string
 }

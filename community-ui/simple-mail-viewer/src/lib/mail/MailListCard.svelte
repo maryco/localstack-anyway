@@ -7,19 +7,19 @@
 
   export let mail: SesMail
 
-  const dispatch = createEventDispatcher<{ deleted: MailDeleted }>()
+  const dispatch = createEventDispatcher<{ removed: MailRemoved }>()
 
   let isSelected: boolean
   $: isSelected = $selectedMail?.messageId === mail.messageId
 
-  const deleteMail = () => {
+  const removeMail = () => {
     if (!mail) {
       return
     }
     if ($selectedMail?.messageId === mail.messageId) {
       selectedMail.set(null)
     }
-    dispatch('deleted', { id: mail.messageId })
+    dispatch('removed', { id: mail.messageId })
   }
 </script>
 
@@ -32,11 +32,19 @@
   <div class="mt-2 flex justify-between">
     <span class="opacity-60">{mail?.date}</span>
     <div class="flex gap-2">
-      <div class="flex items-center fill-gray-light transition-colors" class:fill-theme={isSelected}>
+      <div
+        class="flex items-center fill-gray-light transition-colors"
+        class:fill-theme={isSelected}
+      >
         <EyeIcon class="h-[20px] w-[20px]" />
       </div>
       <div class="flex items-center hover:z-50">
-        <IconButton clickHandler={deleteMail}><CloseIcon /></IconButton>
+        <IconButton
+          name="Remove from list"
+          theme="notice"
+          clickHandler={removeMail}
+          --focus-color="rgb(var(--color-notice))"><CloseIcon /></IconButton
+        >
       </div>
     </div>
   </div>
