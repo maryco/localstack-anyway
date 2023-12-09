@@ -1,6 +1,24 @@
-## Setup
 
-NOTE: For allows access from other container you should set same name to "COMPOSE_PROJECT_NAME" 
+Email viewer for debugging with Localstack Community Edition.
+
+![gif](https://un4dc.com/images/demo-mail-viewer.gif)
+
+## Requirement
+
+- node@^18
+
+## Installation: only mail viewer
+
+If you're already using Localstack with ses, just do:
+```
+cd community-ui
+yarn install
+yarn serve:proxy
+```
+
+Then access to http://localhost:3003/
+
+## Installation: localstack
 
 ```
 cd docker
@@ -18,6 +36,7 @@ DEFAULT_REGION=ap-northeast-1
 SES_VERIFY_EMAIL=localstack-debug@example.com
 S3_DEFAULT_BUCKET=localstack-debug
 ```
+NOTE: For allows access from other container you should set same name to "COMPOSE_PROJECT_NAME" 
 
 ```
 cd docker
@@ -71,7 +90,14 @@ MAIL_MAILER=ses
 MAIL_FROM_ADDRESS=localstack-debug@example.com
 ```
 
-- Test by tinker
+NOTE:
+> AWS_USE_PATH_STYLE_ENDPOINT=true
+>> http://localstack:4566/{bucket_name}
+>
+> AWS_USE_PATH_STYLE_ENDPOINT=false ❌Could not resolve host
+>> http://{bucket_name}.localstack:4566
+
+- Test by tinker (SES)
   > php artisan tinker <br>
   > Mail::raw('', function ($m) { $m->from('localstack-debug@example.com'); $m->to('test@example.com'); })
 
