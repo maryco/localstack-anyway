@@ -1,4 +1,8 @@
 */notes
+mail-provider
+docker/nginx
+docker/php
+docker/docker-compose.mail-provider.yml
 
 # Logs
 */logs
