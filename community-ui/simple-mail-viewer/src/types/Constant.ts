@@ -1,3 +1,9 @@
+import type { InputOption } from "@/types/Component"
+
+export type PreviewMode = 'html' | 'text' | 'source'
+
+export type ScreenWidth = 'none' | 'sm' | 'xs'
+
 export const previewModeOptions: InputOption<string, PreviewMode>[] = [
   { label: 'HTML', value: 'html' },
   { label: 'TEXT', value: 'text' },

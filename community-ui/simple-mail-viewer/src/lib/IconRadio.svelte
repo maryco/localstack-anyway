@@ -1,7 +1,9 @@
 <script lang="ts">
+  import type { InputOption } from "@/types/Component"
+
   export let id: string
   export let name: string
-  export let option: InputOption<any, any>
+  export let option: InputOption<string, string|number>
   export let isChecked: boolean
   export let changeHandler: (e: { currentTarget: HTMLInputElement }) => void
 </script>

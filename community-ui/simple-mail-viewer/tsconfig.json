@@ -20,8 +20,12 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }  
+    },
+
+    "typeRoots": [
+      "src/types"
+    ]
   },
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
+  "references": [{ "path": "./tsconfig.node.json" }],
 }
