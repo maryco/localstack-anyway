@@ -6,9 +6,9 @@
 
 <main class="w-screen min-h-screen max-h-screen flex">
   {#await fetchSes()}
-    TODO
-  {:then mails} 
+    <div class="w-screen h-screen bg-white"></div>
+  {:then mails}
     <MailListContainer {mails} />
+    <MailPreviewContainer />
   {/await}
-  <MailPreviewContainer />
 </main>

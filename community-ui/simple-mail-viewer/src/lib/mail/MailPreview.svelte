@@ -34,10 +34,7 @@
   }
 
   let mailBodyContainer: HTMLDivElement
-  let containerHeight: number
-  let containerWidth: number
-  $: containerHeight = mailBodyContainer?.clientHeight
-  $: containerWidth = mailBodyContainer?.clientWidth
+  let mailBodyContainerWidth: number
 
   const copyToClipboard = () => {
     const text =
@@ -63,7 +60,7 @@
 </script>
 
 <div
-  class="max-w-[832px] max-h-screen overflow-y-scroll py-6 px-8 grow flex flex-col bg-gray-bg"
+  class="min-w-full max-h-screen overflow-y-scroll py-6 px-8 grow flex flex-col bg-gray-bg"
 >
   <div class="flex justify-between">
     <p>
@@ -74,7 +71,7 @@
   <div
     class="mt-4 pt-4 pb-[68px] px-9 grow rounded-md border-gray-border bg-white flex flex-col"
   >
-    <div class="flex justify-end gap-1 items-center">
+    <div class="grow-0 flex justify-end gap-1 items-center">
       {#if $previewModeStore === 'html'}
         <div class="mr-4 flex gap-2" in:slide={{ axis: 'y' }}>
           {#each previewWidthOptions as option}
@@ -106,17 +103,26 @@
     <h2 class="mt-8 pb-3 border-b border-gray-border">
       <span class="min-h-4 inline-block">{$selectedMail?.subject ?? ''}</span>
     </h2>
-    <div class="c-mail-body pt-8 grow" bind:this={mailBodyContainer}>
+    <div
+      class="c-mail-body pt-8 grow"
+      bind:this={mailBodyContainer}
+      bind:clientWidth={mailBodyContainerWidth}
+    >
       {#if $previewModeStore === 'html'}
-        <!-- <span in:fade>{@html $selectedMail?.html ?? ''}</span> -->
-        <iframe
-          title="HTML Mail Preview"
-          srcdoc={$selectedMail?.html ?? ''}
-          height={containerHeight}
-          width={Math.min(previewWidth[$previewWidthStore], containerWidth)}
-          class="mx-auto rounded border border-gray-border shadow-sm"
-          in:fade
-        />
+        <div
+          class="h-full mx-auto transition-[width] duration-300 rounded border border-gray-border shadow-sm"
+          style:width={`${Math.min(
+            previewWidth[$previewWidthStore],
+            mailBodyContainerWidth,
+          )}px`}
+        >
+          <iframe
+            title="HTML Mail Preview"
+            srcdoc={$selectedMail?.html ?? ''}
+            class="w-full h-full"
+            in:fade
+          />
+        </div>
       {:else if $previewModeStore === 'text'}
         <span class="break-all whitespace-pre-wrap" in:fade
           >{$selectedMail?.text ?? ''}</span
