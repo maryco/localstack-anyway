@@ -1,4 +1,12 @@
 #!/bin/bash
+
+IFS=, EMAILS=(${SES_VERIFY_EMAILS})
+
 set -x
-`awslocal ses verify-email-identity --region ${DEFAULT_REGION} --email-address ${SES_VERIFY_EMAIL}`
+
+for EMAIL in "${EMAILS[@]}"
+do
+  `awslocal ses verify-email-identity --region ${DEFAULT_REGION} --email-address ${EMAIL}`
+done
+
 set +x
