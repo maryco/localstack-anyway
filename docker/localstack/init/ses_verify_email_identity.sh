@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IFS=, EMAILS=(${SES_VERIFY_EMAILS})
+EMAILS=(${SES_VERIFY_EMAILS//,/ })
 
 set -x
 

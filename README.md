@@ -33,21 +33,23 @@ AWS_ACCESS_KEY=localstack
 AWS_SECRET_KEY=localstack-secret
 AWS_SECRET_ACCESS_KEY=localstack-secret
 DEFAULT_REGION=ap-northeast-1
-SES_VERIFY_EMAIL=localstack-debug@example.com
+SES_VERIFY_EMAILS=localstack-debug@example.com,any@example.com
 S3_DEFAULT_BUCKET=localstack-debug
+SERVICES=s3,ses
 ```
-NOTE: For allows access from other container you should set same name to "COMPOSE_PROJECT_NAME" 
+NOTE: For access from other container you should add network 'localstack-c6y' to your compose.yml
 
 ```
+docker network create localstack-c6y-net
 cd docker
-docker compose up -d
+docker compose up --build
 ```
 
 - Check available services.
-  > curl -s "http://127.0.0.1:4566/health" | jq .
+  > curl -X GET http://127.0.0.1:4566/_localstack/health | jq .
 
 ```
-docker exec -it localstack-debug /bin/bash
+docker exec -it localstack-c6y /bin/bash
 ```
 
 - Check default bucket are created.
@@ -61,8 +63,8 @@ docker exec -it localstack-debug /bin/bash
 ## Commands you might use
 
 - Retrieving and deleting emails received in SES
-  > curl -X GET 'http://localhost:4566/_localstack/ses/' <br>
-  > curl -X DELETE 'http://localhost:4566/_localstack/ses?id=jdlzfxnetmecxvwk-rfnufcll-fuvy-jild-nkwf-yvjrnolawnsx-bsuuqu'
+  > curl -X GET http://127.0.0.1:4566/_aws/ses | jq . <br>
+  > curl -X DELETE http://127.0.0.1:4566/_aws/ses?id={message-id}
 
 ## With Laravel
 
@@ -106,21 +108,9 @@ NOTE:
 ## Reference
 
 - [Localstack - docker-compose](https://docs.localstack.cloud/getting-started/installation/#docker-compose)
-  - AWS 開発環境｜ LocalStack をさわってみた。
-  https://aws.taf-jp.com/blog/78562
-
-- [Compose CLI 環境変数:COMPOSE_PROJECT_NAME](https://docs.docker.jp/compose/reference/envvars.html#compose-project-name)
-  - docker-composeのコンテナ名のデフォルト名は「プロジェクト名-サービス名-インデックス番号」
-  https://shinkufencer.hateblo.jp/entry/2022/03/19/000000
-- [Compose 内の環境変数](https://docs.docker.jp/compose/environment-variables.html)
+  - [AWS Service Feature Coverage](https://docs.localstack.cloud/user-guide/aws/feature-coverage/)
 
 - verify-email-identity 実行時に regionの指定が必要
   > SendRawEmail operation: Did not have authority to send from email xxxx@example.com
   >> SES was made region-aware in LocalStack 1.4.
   https://github.com/localstack/localstack/issues/7896#issuecomment-1477848752
-
-- 【Docker】コンテナとNetworkの関係
-https://qiita.com/kenny_J_7/items/77de780d7193b75444c3
-  
-  > すなわちコンテナ名が同じであれば同じネットワーク
-  >> docker-compose.yml が格納されているディレクトリ名がコンテナ名？

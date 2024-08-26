@@ -1,16 +1,16 @@
 services:
   localstack:
-    container_name: localstack-debug
-    image: localstack/localstack:2.3
+    container_name: localstack-c6y
+    image: localstack/localstack:3.6.0
     ports:
-      - 4566:4566              # LocalStack Gateway
-      - "4510-4559:4510-4559"  # external services port range
+      - "127.0.0.1:4566:4566"           # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559" # external services port range
     environment:
-      - SERVICES=s3,ses
       - DOCKER_HOST=unix:///var/run/docker.sock
       - DOCKER_SOCK=/var/run/docker.sock
+      - SERVICES
       - DEFAULT_REGION
-      - SES_VERIFY_EMAIL
+      - SES_VERIFY_EMAILS
       - S3_DEFAULT_BUCKET
       - DEBUG=1
       - DISABLE_CORS_CHECKS=true
@@ -18,6 +18,12 @@ services:
       - localstack-debug:/var/lib/localstack
       - "/var/run/docker.sock:/var/run/docker.sock"
       - ./localstack/init:/etc/localstack/init/ready.d
+    networks:
+      - localstack-c6y
+
+networks:
+  localstack-c6y:
+    external: true
 
 volumes:
   localstack-debug:
