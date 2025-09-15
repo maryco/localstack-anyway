@@ -2,7 +2,7 @@ const fs = require('node:fs/promises')
 const express = require('express')
 const cors = require('cors');
 const http = require('node:http')
-const fetch = require('node-fetch')
+const fetch = require('node-fetch').default
 const simpleParser = require('mailparser').simpleParser
 
 const port = process.env.PORT || 3003;
@@ -21,7 +21,7 @@ app.get('/', async (req, res) => {
 app.get('/api/ses', async (req, res) => {
   try {
     // https://www.npmjs.com/package/node-fetch#custom-highwatermark
-    const localstackRes = await fetch('http://localhost:4566/_localstack/ses')
+    const localstackRes = await fetch('http://localhost:4566/_aws/ses')
     const r1 = localstackRes.clone();
     const [data, text] = await Promise.all([localstackRes.json(), r1.text()]);
 
